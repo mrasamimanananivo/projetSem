@@ -21,12 +21,14 @@ using namespace std;
 class Graphe {
 	int nbVilles;
 	vector<Ville> lesVilles;
-	Arete graphe[nbVilles][nbVilles];
+	vector<vector<Arete> > matrice;
 
 public:
 	Graphe();
+	Graphe(int);
 	void setNbVilles(int);
-	void saisirNbVilles();
+	int getNbVilles();
+	int saisirNbVilles();
 	void saisirVilles();
 	void creerGraphe();
 	virtual ~Graphe();

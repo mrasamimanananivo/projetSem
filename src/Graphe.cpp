@@ -12,9 +12,21 @@ using namespace std;
 
 Graphe::Graphe() {
 	nbVilles=0;
-	vector<Ville> lesVilles
+	vector<Ville> lesVilles;
+	vector<vector<Arete> > matrice;
+
+
 	// TODO Auto-generated constructor stub
 
+}
+
+Graphe::Graphe(int nombreVilles)
+{
+	nbVilles=nombreVilles;
+	vector<Ville> lesVilles;
+	vector<vector<Arete> > matrice;
+
+			//matrice[nombreVilles][nombreVilles]=NULL;
 }
 
 Graphe::~Graphe() {
@@ -25,19 +37,28 @@ void Graphe::setNbVilles(int nombreVilles)
 {
 	nbVilles=nombreVilles;
 }
-void Graphe::saisirNbVilles(){
+
+int Graphe::getNbVilles()
+{
+	return nbVilles;
+}
+int Graphe::saisirNbVilles(){ // demande à l'utilisateur de rentrer le nombre de villes du graphes
+	Graphe graphe;
 	int nombreVilles;
 	std::cout<<"Saisir le nombre de villes du graphe"<<std::endl;
 	std::cin>>nombreVilles;
-	setNbVilles(nombreVilles);
+	return nombreVilles;
 }
+
 
 void Graphe:: saisirVilles(){
 	Ville ville;
 	for(int i=0;i<nbVilles;i++)
 	{
-		ville=ville.creerVille();
-		lesVilles.push_back(ville);
+
+		ville = Ville();
+		ville=ville.creerVille(); // créer une ville avec le nom saisi par l'utilisateur
+		lesVilles.push_back(ville); // ajoute la ville créée à la liste
 
 	}
 
@@ -46,30 +67,36 @@ void Graphe:: saisirVilles(){
 
 void Graphe::creerGraphe()
 {	int laDist;
+	Arete arete;
+	for(int i=0;i<nbVilles;i++)
+	{
+			matrice.push_back(vector<Arete>(nbVilles)); // ajoute à la matrice une ligne de taille nbVilles d'arete
+	} // on obtient une matrice d'arêtes de taille nbVilles*nbVilles
 	for(int i=0;i<nbVilles;i++)
 	{
 		for(int j=i;j<nbVilles;j++)
 		{
 			if (i==j)
 			{
-				graphe[i][j]=Arete(lesVilles[i],lesVilles[j],0);
+				arete= Arete(lesVilles[i],lesVilles[j],0); // Pour la case où la ville de la ligne est égale à la ville de la colonne, la distance est 0
+				matrice[i].push_back(arete);
 			}
 			else
 			{
-				std::cout<<"Saisir la distance entre" << lesVilles[i] <<"et" <<lesVilles[j]<<std::endl;
+				std::cout<<"Saisir la distance entre " << lesVilles[i].getNomVille() <<" et " <<lesVilles[j].getNomVille()<<std::endl;
 				std::cin>>laDist;
-				graphe[i][j]=Arete(lesVilles[i],lesVilles[j],laDist);
-				graphe[j][i]=graphe[i][j];
+				matrice[i][j]=Arete(lesVilles[i],lesVilles[j],laDist);
+				matrice[j][i]=matrice[i][j]; // La matrice est symétrique
 			}
 		}
 	}
 }
 int main () {
+	int unNombre;
 	 Graphe graphe;
-	 graphe = Graphe();
-	 graphe.saisirNbVilles();
+	 unNombre = graphe.saisirNbVilles();
+	 graphe = Graphe(unNombre);
 	 graphe.saisirVilles();
 	 graphe.creerGraphe();
 	}
-
 
