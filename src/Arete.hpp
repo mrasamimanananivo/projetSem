@@ -7,7 +7,7 @@
 
 #ifndef ARETE_H_
 #define ARETE_H_
-#include "Ville.h"
+#include "Ville.hpp"
 
 class Arete {
 	Ville ville1, ville2;

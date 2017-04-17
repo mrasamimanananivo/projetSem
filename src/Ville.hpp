@@ -19,6 +19,7 @@ public:
 	Ville(std::string);
 	void setNomVille(std::string);
 	Ville creerVille();
+	std::string getNomVille();
 	virtual ~Ville();
 };
 

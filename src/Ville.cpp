@@ -25,7 +25,12 @@ void Ville::setNomVille(std::string nomVille)
 	nomV=nomVille;
 }
 
-Ville Ville::creerVille(){
+string Ville::getNomVille()
+{
+	return nomV;
+}
+
+Ville Ville::creerVille(){ // créer une ville avec le nom saisi par l'utilisateur
 	std::string nomVille;
 	cout<<"Saisir le nom de la ville :"<<endl;
 	cin>>nomVille;

@@ -5,7 +5,7 @@
  *      Author: Clémentine
  */
 
-#include "Graphe.h"
+#include "Graphe.hpp"
 #include<iostream>
 #include<string>
 using namespace std;
