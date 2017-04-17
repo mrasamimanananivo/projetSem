@@ -8,8 +8,8 @@
 #ifndef GRAPHE_H_
 #define GRAPHE_H_
 
-#include "Ville.h"
-#include "Arete.h"
+#include "Ville.hpp"
+#include "Arete.hpp"
 
 #include <vector>
 #include <iostream>

@@ -8,8 +8,8 @@
 #ifndef SYSTEME_H_
 #define SYSTEME_H_
 
-#include "graphe.h"
-#include "fourmi.h"
+#include "graphe.hpp"
+#include "fourmi.hpp"
 
 
 namespace std {
