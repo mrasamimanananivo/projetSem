@@ -5,7 +5,7 @@
  *      Author: Clémentine
  */
 
-#include "Systeme.h"
+#include "Systeme.hpp"
 
 namespace std {
 
