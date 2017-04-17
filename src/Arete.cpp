@@ -5,7 +5,7 @@
  *      Author: Clémentine
  */
 
-#include "Arete.h"
+#include "Arete.hpp"
 
 Arete::Arete(Ville laVille1, Ville laVille2) {
 	// TODO Auto-generated constructor stub
